@@ -4,6 +4,7 @@ cd /app
 npm install
 
 sudo service cron restart
+sudo service nginx restart
 
 screen -wipe
 screen -dmS server

@@ -4,9 +4,6 @@ ENV TZ=Asia/Tokyo
 
 WORKDIR /app
 
-### Stop nextjs server at specified time
-# COPY ./crontab /etc/crontab
-
 ### development
 RUN chown -R node:node /app \
     ; \
@@ -16,6 +13,7 @@ RUN chown -R node:node /app \
     apt-get install -y --no-install-recommends \
         anacron \
         cron \
+        nginx \
         screen \
         sudo \
     ; \
@@ -30,6 +28,9 @@ RUN chown -R node:node /app \
     echo "" >> /etc/sudoers ; \
     echo "# Don't require password for sudo command for dev user" >> /etc/sudoers ; \
     echo "node ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+### Stop nextjs server at specified time
+COPY ./crontab /etc/crontab
 
 USER node
 

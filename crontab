@@ -22,4 +22,4 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 #
 
 # Stop nextjs server at specified time
-# <minute> <hour> <day> <month> <week> node screen -S server -X quit
+# * * * * * node screen -S server -X quit
